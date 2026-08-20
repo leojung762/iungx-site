@@ -51,6 +51,7 @@ const steps = [
 export default function Home() {
   return (
     <main>
+      <div className="scroll-progress" aria-hidden="true" />
       <header className="site-header">
         <a className="wordmark" href="#inicio" aria-label="IungX — início">IungX</a>
         <nav aria-label="Navegação principal">
@@ -62,13 +63,21 @@ export default function Home() {
       </header>
 
       <section className="hero" id="inicio">
-        <h1>IungX</h1>
+        <h1 aria-label="IungX">
+          {"IungX".split("").map((letter, index) => (
+            <span aria-hidden="true" key={`${letter}-${index}`}>{letter}</span>
+          ))}
+        </h1>
         <p>Tecnologia para resolver o que trava o seu negócio.</p>
         <a className="pill-button" href="#solucoes">Conheça a IungX <span>↓</span></a>
+        <a className="scroll-cue" href="#solucoes" aria-label="Ir para soluções"><span /> Role para explorar</a>
       </section>
 
       <div className="practice-line" aria-label="Áreas de atuação">
-        <span>Bitrix24</span><i>×</i><span>Inteligência artificial</span><i>×</i><span>Software</span><i>×</i><span>Cybersecurity</span>
+        <div className="practice-track">
+          <span>Bitrix24</span><i>×</i><span>Inteligência artificial</span><i>×</i><span>Software</span><i>×</i><span>Cybersecurity</span><i>×</i>
+          <span aria-hidden="true">Bitrix24</span><i aria-hidden="true">×</i><span aria-hidden="true">Inteligência artificial</span><i aria-hidden="true">×</i><span aria-hidden="true">Software</span><i aria-hidden="true">×</i><span aria-hidden="true">Cybersecurity</span><i aria-hidden="true">×</i>
+        </div>
       </div>
 
       <section className="intro" id="solucoes">
@@ -92,12 +101,16 @@ export default function Home() {
               />
               <span>{service.label}</span>
               <small>IUNGX / {service.number}</small>
+              <div className="service-art-action" aria-hidden="true"><span>Ver solução</span><b>↗</b></div>
             </div>
             <div className="service-copy">
               <span className="service-number">{service.number}</span>
               <h3>{service.title}</h3>
               <p>{service.description}</p>
-              <ul>{service.items.map((item) => <li key={item}>{item}</li>)}</ul>
+              <details>
+                <summary>O que entregamos <span aria-hidden="true">+</span></summary>
+                <ul>{service.items.map((item) => <li key={item}>{item}</li>)}</ul>
+              </details>
             </div>
           </article>
         ))}
