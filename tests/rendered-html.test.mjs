@@ -30,18 +30,18 @@ test("server-renders the IungX website", async () => {
 
   const html = await response.text();
   assert.match(html, /<title>IungX — Tecnologia aplicada ao negócio<\/title>/i);
-  assert.match(html, /Tecnologia que sai do plano/);
-  assert.match(html, /Bitrix24 &amp; CRM/);
-  assert.match(html, /Inteligência artificial conectada ao trabalho real/);
-  assert.match(html, /Cybersecurity &amp; Infra/);
+  assert.match(html, /Do terminal à/);
+  assert.match(html, /Bitrix24 que organiza a operação inteira/);
+  assert.match(html, /IA aplicada ao trabalho real/);
+  assert.match(html, /Segurança desde a primeira decisão/);
   assert.match(html, /\+55 48 8822-2608/);
   assert.match(html, /68\.006\.339\/0001-39/);
-  assert.match(html, /https:\/\/iungx\.space\/og-minimal\.png/);
+  assert.match(html, /https:\/\/iungx\.space\/og-minimal-v2\.png/);
   assert.doesNotMatch(html, /codex-preview|Building your site|react-loading-skeleton/i);
 });
 
 test("keeps the social preview and production source in place", async () => {
-  await access(new URL("../public/og-minimal.png", import.meta.url));
+  await access(new URL("../public/og-minimal-v2.png", import.meta.url));
   const [page, layout, css] = await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
@@ -50,7 +50,7 @@ test("keeps the social preview and production source in place", async () => {
 
   assert.match(page, /Fale com a IungX/);
   assert.match(page, /Technology leader/);
-  assert.match(layout, /og-minimal\.png/);
-  assert.match(css, /--paper:\s*#f0efff/);
+  assert.match(layout, /og-minimal-v2\.png/);
+  assert.match(css, /--white:\s*#f7f7f5/);
   assert.doesNotMatch(page, /SkeletonPreview|codex-preview/);
 });
