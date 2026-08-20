@@ -2,6 +2,8 @@ const services = [
   {
     number: "01",
     label: "CRM",
+    image: "/service-crm.webp",
+    alt: "Fluxos empresariais conectados em uma arquitetura integrada",
     title: "Bitrix24 que organiza a operação inteira.",
     description:
       "Implantação, evolução e integração do Bitrix24 para conectar comercial, atendimento, operação e gestão em um fluxo claro.",
@@ -10,6 +12,8 @@ const services = [
   {
     number: "02",
     label: "AI",
+    image: "/service-ai.webp",
+    alt: "Escultura computacional representando inteligência artificial e automação",
     title: "IA aplicada ao trabalho real.",
     description:
       "Agentes, copilotos e processos inteligentes com contexto, segurança e resultado mensurável — sem automação pela automação.",
@@ -18,6 +22,8 @@ const services = [
   {
     number: "03",
     label: "BUILD",
+    image: "/service-software.webp",
+    alt: "Arquitetura modular representando construção de software sob medida",
     title: "Software desenhado em torno do problema.",
     description:
       "Sistemas e integrações sob medida para eliminar gargalos, reduzir tarefas manuais e sustentar o crescimento da empresa.",
@@ -26,6 +32,8 @@ const services = [
   {
     number: "04",
     label: "SECURE",
+    image: "/service-security.webp",
+    alt: "Infraestrutura digital protegida por uma arquitetura de segurança",
     title: "Segurança desde a primeira decisão.",
     description:
       "Infraestrutura, cloud, redes e cybersecurity tratados como fundação da solução, não como correção depois do problema.",
@@ -74,7 +82,14 @@ export default function Home() {
       <section className="services">
         {services.map((service, index) => (
           <article className={`service ${index % 2 ? "service-reverse" : ""}`} key={service.number}>
-            <div className={`service-art art-${index + 1}`} aria-hidden="true">
+            <div className={`service-art art-${index + 1}`}>
+              <img
+                src={service.image}
+                alt={service.alt}
+                width="1536"
+                height="1024"
+                loading={index === 0 ? "eager" : "lazy"}
+              />
               <span>{service.label}</span>
               <small>IUNGX / {service.number}</small>
             </div>

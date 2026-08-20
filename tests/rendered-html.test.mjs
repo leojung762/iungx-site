@@ -34,6 +34,10 @@ test("server-renders the IungX website", async () => {
   assert.match(html, /Bitrix24 que organiza a operação inteira/);
   assert.match(html, /IA aplicada ao trabalho real/);
   assert.match(html, /Segurança desde a primeira decisão/);
+  assert.match(html, /service-crm\.webp/);
+  assert.match(html, /service-ai\.webp/);
+  assert.match(html, /service-software\.webp/);
+  assert.match(html, /service-security\.webp/);
   assert.match(html, /\+55 48 8822-2608/);
   assert.match(html, /68\.006\.339\/0001-39/);
   assert.match(html, /https:\/\/iungx\.space\/og-minimal-v2\.png/);

@@ -46,18 +46,16 @@ main { background: var(--black); }
 .service { max-width: 1200px; min-height: 620px; margin: 0 auto 90px; display: grid; grid-template-columns: 1.25fr .75fr; gap: clamp(70px,9vw,140px); align-items: center; }
 .service-reverse { grid-template-columns: .75fr 1.25fr; }
 .service-reverse .service-art { order: 2; }
-.service-art { min-height: 540px; position: relative; overflow: hidden; display: grid; place-items: center; background: #101010; }
-.service-art::before { content: ""; position: absolute; inset: 0; opacity: .65; }
-.service-art > span { position: relative; z-index: 1; font-size: clamp(88px,11vw,170px); line-height: .8; letter-spacing: -.095em; font-weight: 520; }
-.service-art > small { position: absolute; left: 22px; bottom: 19px; color: rgba(255,255,255,.46); font: 9px var(--font-mono), monospace; letter-spacing: .13em; }
-.art-1::before { background: linear-gradient(145deg,#162947 0,#080d15 52%,#050505 100%); }
-.art-1 > span { color: #eff4ff; }
-.art-2::before { background: radial-gradient(circle at 50% 48%,#294e8e 0,#0d1b31 35%,#050505 72%); }
-.art-2 > span { color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.8); }
-.art-3::before { background: linear-gradient(135deg,#070707 15%,#21395f 50%,#070707 85%); }
-.art-3 > span { color: white; mix-blend-mode: overlay; }
-.art-4::before { background: radial-gradient(circle,#183964 0,#07101d 42%,#030303 72%); }
-.art-4 > span { color: transparent; -webkit-text-stroke: 1px rgba(171,202,255,.8); font-size: clamp(70px,9vw,135px); }
+.service-art { min-height: 540px; position: relative; overflow: hidden; background: #101010; }
+.service-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg,rgba(0,0,0,.05) 45%,rgba(0,0,0,.76) 100%); pointer-events: none; }
+.service-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.2,.7,.2,1), filter .7s; }
+.service:hover .service-art img { transform: scale(1.025); filter: brightness(1.08); }
+.service-art > span { position: absolute; right: 20px; top: 18px; z-index: 2; padding: 7px 10px; border: 1px solid rgba(255,255,255,.34); border-radius: 999px; background: rgba(0,0,0,.26); backdrop-filter: blur(12px); color: white; font: 9px var(--font-mono), monospace; letter-spacing: .14em; }
+.service-art > small { position: absolute; left: 22px; bottom: 19px; z-index: 2; color: rgba(255,255,255,.66); font: 9px var(--font-mono), monospace; letter-spacing: .13em; }
+.art-1 img { object-position: center; }
+.art-2 img { object-position: 48% center; }
+.art-3 img { object-position: center; }
+.art-4 img { object-position: center; }
 .service-copy { position: relative; }
 .service-number { position: absolute; top: -48px; color: #666; font: 10px var(--font-mono), monospace; }
 .service-copy h3 { margin: 0; font-size: clamp(36px,3.5vw,53px); line-height: 1.06; letter-spacing: -.052em; font-weight: 500; }
@@ -122,8 +120,6 @@ main { background: var(--black); }
   .services { padding: 0 18px 80px; }
   .service, .service-reverse { gap: 62px; margin-bottom: 120px; }
   .service-art { min-height: 400px; }
-  .service-art > span { font-size: 84px; }
-  .art-4 > span { font-size: 62px; }
   .service-copy h3 { font-size: 38px; }
   .service-copy > p { font-size: 15px; }
   .method { padding: 105px 18px; }
