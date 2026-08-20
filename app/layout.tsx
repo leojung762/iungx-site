@@ -18,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const incomingHeaders = await headers();
   const host = incomingHeaders.get("host") ?? "iungx.space";
   const protocol = host.includes("localhost") ? "http" : "https";
-  const image = new URL("/og-dark.png", `${protocol}://${host}`).toString();
+  const image = new URL("/og-system.png", `${protocol}://${host}`).toString();
   const title = "IungX — Tecnologia que move negócios";
   const description =
     "Soluções em Bitrix24, inteligência artificial, automação, software, infraestrutura e segurança da informação.";
@@ -32,7 +32,7 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
       locale: "pt_BR",
       siteName: "IungX",
-      images: [{ url: image, width: 1731, height: 909, alt: "IungX — Do terminal à sala de decisão" }],
+      images: [{ url: image, width: 1734, height: 907, alt: "IungX — Tecnologia para empresas que não podem operar no improviso" }],
     },
     twitter: {
       card: "summary_large_image",
