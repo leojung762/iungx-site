@@ -79,7 +79,8 @@ main { background: var(--black); }
 @keyframes breathe { 50% { transform: translate(-50%,-50%) scale(1.25); opacity: .45; } }
 
 .practice-line { min-height: 96px; padding: 25px 0; display: flex; align-items: center; overflow: hidden; border-bottom: 1px solid #222; color: #aaa; font-size: 13px; }
-.practice-track { width: max-content; display: flex; align-items: center; gap: clamp(30px,4vw,64px); padding-left: clamp(30px,4vw,64px); white-space: nowrap; animation: ticker 24s linear infinite; }
+.practice-track { width: max-content; display: flex; align-items: center; white-space: nowrap; animation: ticker 24s linear infinite; will-change: transform; }
+.practice-group { width: max-content; min-width: 100vw; padding: 0 clamp(30px,4vw,64px); display: flex; flex: 0 0 auto; align-items: center; justify-content: space-around; gap: clamp(30px,4vw,64px); }
 .practice-line:hover .practice-track { animation-play-state: paused; }
 .practice-line i { color: #494949; font-style: normal; }
 @keyframes ticker { to { transform: translateX(-50%); } }

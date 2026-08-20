@@ -46,6 +46,7 @@ test("server-renders the IungX website", async () => {
   assert.match(html, /68\.006\.339\/0001-39/);
   assert.match(html, /\/favicon\.png/);
   assert.match(html, /language-switch/);
+  assert.equal((html.match(/class="practice-group"/g) ?? []).length, 2);
   assert.match(html, /https:\/\/iungx\.space\/og-minimal-v2\.png/);
   assert.doesNotMatch(html, /codex-preview|Building your site|react-loading-skeleton/i);
 });

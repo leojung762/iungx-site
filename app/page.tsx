@@ -136,8 +136,11 @@ export default function Home() {
 
       <div className="practice-line" aria-label="Areas of expertise" data-aria-en="Areas of expertise" data-aria-pt="Áreas de atuação">
         <div className="practice-track">
-          <span>Bitrix24</span><i>×</i><span data-en="Artificial intelligence" data-pt="Inteligência artificial">Artificial intelligence</span><i>×</i><span>Software</span><i>×</i><span>Cybersecurity</span><i>×</i>
-          <span aria-hidden="true">Bitrix24</span><i aria-hidden="true">×</i><span aria-hidden="true" data-en="Artificial intelligence" data-pt="Inteligência artificial">Artificial intelligence</span><i aria-hidden="true">×</i><span aria-hidden="true">Software</span><i aria-hidden="true">×</i><span aria-hidden="true">Cybersecurity</span><i aria-hidden="true">×</i>
+          {[false, true].map((duplicate) => (
+            <div className="practice-group" aria-hidden={duplicate || undefined} key={String(duplicate)}>
+              <span>Bitrix24</span><i>×</i><span data-en="Artificial intelligence" data-pt="Inteligência artificial">Artificial intelligence</span><i>×</i><span>Software</span><i>×</i><span>Cybersecurity</span><i>×</i>
+            </div>
+          ))}
         </div>
       </div>
 
