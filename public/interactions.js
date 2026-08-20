@@ -7,6 +7,49 @@
   const indicatorNumber = indicator?.querySelector("span");
   const indicatorLabel = indicator?.querySelector("b");
   const stages = [...document.querySelectorAll(".motion-stage")];
+  const languageSwitch = document.querySelector(".language-switch");
+  let currentStage = stages[0];
+
+  const applyLanguage = (language, persist = true) => {
+    const lang = language === "pt" ? "pt" : "en";
+    root.lang = lang === "pt" ? "pt-BR" : "en";
+    root.dataset.language = lang;
+
+    for (const element of document.querySelectorAll("[data-en][data-pt]")) {
+      element.textContent = element.dataset[lang];
+    }
+    for (const element of document.querySelectorAll("[data-aria-en][data-aria-pt]")) {
+      element.setAttribute("aria-label", element.dataset[`aria${lang === "pt" ? "Pt" : "En"}`]);
+    }
+    for (const image of document.querySelectorAll("[data-alt-en][data-alt-pt]")) {
+      image.alt = image.dataset[`alt${lang === "pt" ? "Pt" : "En"}`];
+    }
+    for (const link of document.querySelectorAll("[data-href-en][data-href-pt]")) {
+      link.href = link.dataset[`href${lang === "pt" ? "Pt" : "En"}`];
+    }
+    for (const stage of stages) {
+      stage.dataset.section = stage.dataset[`section${lang === "pt" ? "Pt" : "En"}`] || "IUNGX";
+    }
+    for (const option of document.querySelectorAll("[data-lang-option]")) {
+      option.classList.toggle("is-active", option.dataset.langOption === lang);
+    }
+    if (languageSwitch) {
+      languageSwitch.setAttribute("aria-pressed", String(lang === "pt"));
+      languageSwitch.setAttribute("aria-label", lang === "pt" ? "Switch language to English" : "Mudar idioma para português");
+    }
+    if (indicatorLabel && currentStage) indicatorLabel.textContent = currentStage.dataset.section || "IUNGX";
+    document.title = lang === "pt" ? "IungX — Tecnologia aplicada ao negócio" : "IungX — Technology built for business";
+    if (persist) window.localStorage.setItem("iungx-language", lang);
+  };
+
+  let savedLanguage = "en";
+  try {
+    savedLanguage = window.localStorage.getItem("iungx-language") || "en";
+  } catch {}
+  applyLanguage(savedLanguage, false);
+  languageSwitch?.addEventListener("click", () => {
+    applyLanguage(root.dataset.language === "en" ? "pt" : "en");
+  });
 
   root.classList.add("motion-enabled");
 
@@ -48,6 +91,7 @@
     const currentObserver = new IntersectionObserver((entries) => {
       const current = entries.find((entry) => entry.isIntersecting);
       if (!current) return;
+      currentStage = current.target;
       for (const stage of stages) stage.classList.toggle("is-current", stage === current.target);
       if (indicatorNumber) indicatorNumber.textContent = current.target.dataset.index || "01";
       if (indicatorLabel) indicatorLabel.textContent = current.target.dataset.section || "IUNGX";

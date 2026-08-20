@@ -29,11 +29,11 @@ test("server-renders the IungX website", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, /<title>IungX — Tecnologia aplicada ao negócio<\/title>/i);
-  assert.match(html, /Do terminal à/);
-  assert.match(html, /Bitrix24 que organiza a operação inteira/);
-  assert.match(html, /IA aplicada ao trabalho real/);
-  assert.match(html, /Segurança desde a primeira decisão/);
+  assert.match(html, /<title>IungX — Technology built for business<\/title>/i);
+  assert.match(html, /From the terminal to the/);
+  assert.match(html, /Bitrix24 that organizes your entire operation/);
+  assert.match(html, /AI applied to real work/);
+  assert.match(html, /Security from the very first decision/);
   assert.match(html, /service-crm\.webp/);
   assert.match(html, /service-ai\.webp/);
   assert.match(html, /service-software\.webp/);
@@ -41,8 +41,11 @@ test("server-renders the IungX website", async () => {
   assert.match(html, /\/interactions\.js/);
   assert.match(html, /screen-wipe/);
   assert.match(html, /section-indicator/);
-  assert.match(html, /\+55 48 8822-2608/);
+  assert.match(html, /wa\.me\/554888222608/);
+  assert.doesNotMatch(html, /\+55 48 8822-2608/);
   assert.match(html, /68\.006\.339\/0001-39/);
+  assert.match(html, /\/favicon\.png/);
+  assert.match(html, /language-switch/);
   assert.match(html, /https:\/\/iungx\.space\/og-minimal-v2\.png/);
   assert.doesNotMatch(html, /codex-preview|Building your site|react-loading-skeleton/i);
 });
@@ -56,11 +59,12 @@ test("keeps the social preview and production source in place", async () => {
     readFile(new URL("../public/interactions.js", import.meta.url), "utf8"),
   ]);
 
-  assert.match(page, /Fale com a IungX/);
+  assert.match(page, /Talk to IungX/);
   assert.match(page, /Technology leader/);
   assert.match(layout, /og-minimal-v2\.png/);
   assert.match(css, /--white:\s*#f7f7f5/);
   assert.match(interactions, /IntersectionObserver/);
   assert.match(interactions, /data-tilt/);
+  assert.match(interactions, /iungx-language/);
   assert.doesNotMatch(page, /SkeletonPreview|codex-preview/);
 });

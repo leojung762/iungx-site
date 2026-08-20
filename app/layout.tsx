@@ -19,9 +19,9 @@ export async function generateMetadata(): Promise<Metadata> {
   const host = incomingHeaders.get("host") ?? "iungx.space";
   const protocol = host.includes("localhost") ? "http" : "https";
   const image = new URL("/og-minimal-v2.png", `${protocol}://${host}`).toString();
-  const title = "IungX — Tecnologia aplicada ao negócio";
+  const title = "IungX — Technology built for business";
   const description =
-    "Soluções em Bitrix24, inteligência artificial, automação, software, infraestrutura e segurança da informação.";
+    "Bitrix24, artificial intelligence, automation, software, infrastructure, and cybersecurity solutions built around real business problems.";
 
   return {
     title,
@@ -30,9 +30,9 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
       type: "website",
-      locale: "pt_BR",
+      locale: "en_US",
       siteName: "IungX",
-      images: [{ url: image, width: 1734, height: 907, alt: "IungX — Tecnologia aplicada ao negócio" }],
+      images: [{ url: image, width: 1734, height: 907, alt: "IungX — Technology built for business" }],
     },
     twitter: {
       card: "summary_large_image",
@@ -40,12 +40,16 @@ export async function generateMetadata(): Promise<Metadata> {
       description,
       images: [image],
     },
+    icons: {
+      icon: [{ url: "/favicon.png", type: "image/png" }],
+      apple: [{ url: "/favicon.png", type: "image/png" }],
+    },
   };
 }
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-BR">
+    <html lang="en">
       <body className={`${manrope.variable} ${plexMono.variable}`}>
         {children}
         <script src="/interactions.js" defer />

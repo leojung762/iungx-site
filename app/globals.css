@@ -37,10 +37,18 @@ main { background: var(--black); }
 .site-header nav a:hover { opacity: 1; }
 .site-header nav a::after { content: ""; display: block; height: 1px; margin-top: 4px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .25s; }
 .site-header nav a:hover::after { transform: scaleX(1); transform-origin: left; }
+.header-actions { justify-self: end; display: flex; align-items: center; gap: 10px; }
+.language-switch { height: 38px; padding: 4px 5px; display: flex; align-items: center; gap: 3px; border: 1px solid rgba(0,0,0,.18); border-radius: 999px; background: rgba(255,255,255,.62); color: var(--black); font: 600 9px var(--font-mono), monospace; letter-spacing: .08em; cursor: pointer; backdrop-filter: blur(12px); }
+.language-switch span { min-width: 27px; height: 28px; display: grid; place-items: center; border-radius: 999px; opacity: .45; transition: color .25s, background .25s, opacity .25s, transform .25s; }
+.language-switch span.is-active { background: var(--black); color: white; opacity: 1; }
+.language-switch:hover span.is-active { transform: scale(1.05); }
+.language-switch i { width: 1px; height: 13px; background: rgba(0,0,0,.16); }
 .header-cta { justify-self: end; min-height: 38px; padding: 0 17px; display: flex; align-items: center; gap: 17px; border-radius: 999px; background: var(--black); color: white; font-size: 13px; font-weight: 600; transition: transform .25s, background .25s; }
 .header-cta:hover { transform: translateY(-2px); background: var(--navy); }
-.header-cta span, .pill-button span { display: inline-block; transition: transform .25s; }
-.header-cta:hover span, .pill-button:hover span { transform: translate(3px,-2px); }
+.header-cta span, .pill-button span, .pill-button b { display: inline-block; transition: transform .25s; }
+.header-cta:hover > span:first-child, .pill-button:hover b { transform: translate(3px,-2px); }
+.whatsapp-icon { width: 22px; height: 22px; display: inline-grid !important; place-items: center; flex: 0 0 auto; border-radius: 50%; background: #25d366; color: white; font: 700 12px Arial, sans-serif; transform: rotate(-18deg); box-shadow: 0 0 0 1px rgba(255,255,255,.24); }
+.header-cta:hover .whatsapp-icon, .whatsapp-button:hover .whatsapp-icon { transform: rotate(-18deg) scale(1.08); }
 
 .hero {
   min-height: 760px; padding: 110px 24px 70px; display: flex; flex-direction: column;
@@ -56,6 +64,7 @@ main { background: var(--black); }
 .pill-button:hover { transform: translateY(-2px); opacity: .82; }
 @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 .scroll-cue { position: absolute; left: 50%; bottom: 26px; display: flex; align-items: center; gap: 10px; transform: translateX(-50%); color: #777; font: 500 9px var(--font-mono), monospace; letter-spacing: .13em; text-transform: uppercase; }
+.scroll-cue b { font: inherit; }
 .scroll-cue > span { width: 18px; height: 28px; position: relative; border: 1px solid #a7a7a7; border-radius: 999px; }
 .scroll-cue > span::after { content: ""; position: absolute; left: 50%; top: 6px; width: 2px; height: 5px; border-radius: 2px; background: #555; transform: translateX(-50%); animation: scroll-dot 1.6s ease-in-out infinite; }
 @keyframes scroll-dot { 0%,100% { transform: translate(-50%,0); opacity: .35; } 50% { transform: translate(-50%,8px); opacity: 1; } }
@@ -107,8 +116,8 @@ main { background: var(--black); }
 .service-copy details { border-top: 1px solid #303030; border-bottom: 1px solid #303030; }
 .service-copy summary { min-height: 51px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; color: #d2d2d2; font-size: 13px; list-style: none; }
 .service-copy summary::-webkit-details-marker { display: none; }
-.service-copy summary span { color: #7fa4e6; font-size: 19px; transition: transform .3s; }
-.service-copy details[open] summary span { transform: rotate(45deg); }
+.service-copy summary b { color: #7fa4e6; font-size: 19px; font-weight: 400; transition: transform .3s; }
+.service-copy details[open] summary b { transform: rotate(45deg); }
 .service-copy ul { margin: 0; padding: 0 0 10px; list-style: none; }
 .service-copy li { padding: 13px 0; border-bottom: 1px solid #303030; color: #d2d2d2; font-size: 13px; }
 .service-copy li:last-child { border-bottom: 0; }
@@ -140,6 +149,8 @@ main { background: var(--black); }
 .contact h2 { margin: 0; font-size: clamp(75px,9vw,135px); line-height: .88; letter-spacing: -.085em; font-weight: 500; }
 .contact > p:not(.kicker) { margin: 34px 0 36px; max-width: 600px; color: #555; font-size: 18px; line-height: 1.5; }
 .contact .pill-button { animation: none; }
+.whatsapp-button { gap: 12px; padding-right: 24px; }
+.whatsapp-button .whatsapp-icon { width: 26px; height: 26px; font-size: 14px; }
 
 .site-footer { padding: 45px 32px 28px; display: grid; grid-template-columns: 1fr 1.5fr 1fr; gap: 40px; border-top: 1px solid #262626; }
 .site-footer p { margin: 0; color: #7d7d7d; font-size: 11px; line-height: 1.65; }
@@ -176,8 +187,11 @@ a:focus-visible, summary:focus-visible { outline: 2px solid #6f9ef0; outline-off
 
 @media (max-width: 640px) {
   .site-header { height: 58px; padding-inline: 18px; }
+  .header-actions { gap: 7px; }
+  .language-switch { height: 36px; }
   .header-cta { width: 38px; min-height: 38px; padding: 0; justify-content: center; font-size: 0; }
-  .header-cta span { font-size: 13px; }
+  .header-cta > span:first-child { display: none; }
+  .header-cta .whatsapp-icon { display: inline-grid !important; }
   .hero { min-height: 650px; padding-inline: 18px; }
   .hero h1 { font-size: 84px; }
   .hero > p { max-width: 350px; font-size: 20px; }
