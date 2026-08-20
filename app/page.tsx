@@ -61,9 +61,7 @@ export default function Home() {
         </nav>
         <a
           className="header-cta"
-          href="https://www.linkedin.com/in/leonardo-j-93b304286/"
-          target="_blank"
-          rel="noreferrer"
+          href="tel:+554888222608"
         >
           Vamos conversar <span aria-hidden="true">↗</span>
         </a>
@@ -87,9 +85,7 @@ export default function Home() {
               </a>
               <a
                 className="button button-ghost"
-                href="https://www.linkedin.com/in/leonardo-j-93b304286/"
-                target="_blank"
-                rel="noreferrer"
+                href="tel:+554888222608"
               >
                 Falar com um especialista <span aria-hidden="true">↗</span>
               </a>
@@ -219,10 +215,8 @@ export default function Home() {
         </div>
         <a
           className="cta-circle"
-          href="https://www.linkedin.com/in/leonardo-j-93b304286/"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Conversar com Leonardo no LinkedIn"
+          href="tel:+554888222608"
+          aria-label="Ligar para Leonardo no telefone +55 48 8822-2608"
         >
           <span>Vamos<br />conversar</span><b aria-hidden="true">↗</b>
         </a>
@@ -232,6 +226,7 @@ export default function Home() {
         <a className="brand footer-brand" href="#inicio"><span>Iung</span><b>X</b><i>.</i></a>
         <p>Leonardo Jung Desenvolvimento de Software Ltda.<br />CNPJ 68.006.339/0001-39</p>
         <div>
+          <a href="tel:+554888222608">+55 48 8822-2608</a>
           <a href="https://www.linkedin.com/in/leonardo-j-93b304286/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
           <a href="#inicio">Voltar ao topo ↑</a>
         </div>
