@@ -1,219 +1,200 @@
-const capabilities = [
+const services = [
   {
-    id: "01",
-    title: "Bitrix24 / CRM",
-    label: "OPERAÇÃO COMERCIAL",
+    eyebrow: "Bitrix24 & CRM",
+    title: "Uma operação comercial que realmente conversa com o restante da empresa.",
     description:
-      "Arquitetura, implantação e integrações que transformam o CRM no sistema operacional da sua operação.",
-    stack: "CRM · AUTOMAÇÕES · APIS",
+      "Desenhamos, implantamos e integramos o Bitrix24 para organizar processos, reduzir trabalho manual e transformar o CRM em uma fonte confiável para decisões.",
+    bullets: ["Implantação e evolução", "Automações e integrações", "Dados e governança"],
+    visual: "crm",
   },
   {
-    id: "02",
-    title: "IA / Automação",
-    label: "INTELIGÊNCIA APLICADA",
+    eyebrow: "IA & Automação",
+    title: "Inteligência artificial conectada ao trabalho real.",
     description:
-      "Agentes e fluxos inteligentes conectados ao contexto real do negócio — sem automação pela automação.",
-    stack: "AGENTES · WORKFLOWS · DADOS",
+      "Criamos agentes, copilotos e fluxos inteligentes com contexto, segurança e objetivo claro — da primeira automação ao processo completo.",
+    bullets: ["Agentes de IA", "Workflows inteligentes", "Integração com APIs"],
+    visual: "ai",
   },
   {
-    id: "03",
-    title: "Software",
-    label: "ENGENHARIA SOB MEDIDA",
+    eyebrow: "Software sob medida",
+    title: "Sistemas construídos em torno do problema, não do pacote.",
     description:
-      "Produtos e sistemas desenhados para eliminar gargalos, integrar áreas e sustentar crescimento.",
-    stack: "WEB APPS · ARQUITETURA · INTEGRAÇÕES",
+      "Projetamos produtos e integrações que eliminam gargalos, conectam áreas e acompanham o crescimento sem criar mais uma camada de improviso.",
+    bullets: ["Aplicações web", "Arquitetura de software", "Sistemas integrados"],
+    visual: "software",
   },
   {
-    id: "04",
-    title: "Cyber / Infra",
-    label: "BASE SEGURA",
+    eyebrow: "Cybersecurity & Infra",
+    title: "Segurança como arquitetura, não como correção tardia.",
     description:
-      "Cloud, redes e segurança da informação tratados como fundação — nunca como correção tardia.",
-    stack: "SECURITY · CLOUD · DEVOPS",
+      "Infraestrutura, cloud, redes e segurança da informação com visão ofensiva e abordagem security-first desde a primeira decisão técnica.",
+    bullets: ["Cloud e infraestrutura", "Security by design", "Observabilidade e DevOps"],
+    visual: "security",
   },
 ];
 
-const process = [
-  ["01", "DIAGNOSTICAR", "Entender o problema além do sintoma."],
-  ["02", "ARQUITETAR", "Desenhar o sistema antes de escolher a ferramenta."],
-  ["03", "CONSTRUIR", "Implementar com engenharia, velocidade e controle."],
-  ["04", "OPERAR", "Medir, evoluir e manter o que foi colocado em produção."],
+const steps = [
+  ["01", "Entender", "O problema, o processo e o impacto esperado."],
+  ["02", "Desenhar", "A arquitetura e o caminho de implementação."],
+  ["03", "Construir", "A solução integrada à operação real."],
+  ["04", "Evoluir", "Métricas, segurança e melhoria contínua."],
 ];
+
+function ProductVisual({ type }: { type: string }) {
+  if (type === "crm") {
+    return (
+      <div className="product-visual crm-visual" aria-hidden="true">
+        <div className="visual-top"><span>Operação comercial</span><i>Ao vivo</i></div>
+        <div className="crm-metric"><small>Pipeline</small><strong>R$ 428.500</strong><span>+18,4%</span></div>
+        <div className="crm-board">
+          <div><small>NOVOS</small><b>12</b><i /><i /><i /></div>
+          <div><small>PROPOSTA</small><b>08</b><i /><i /></div>
+          <div><small>NEGOCIAÇÃO</small><b>05</b><i /><i /><i /></div>
+        </div>
+        <div className="visual-foot"><span>Automação executada</span><b>✓</b></div>
+      </div>
+    );
+  }
+
+  if (type === "ai") {
+    return (
+      <div className="product-visual ai-visual" aria-hidden="true">
+        <div className="visual-top"><span>Agente operacional</span><i>Executando</i></div>
+        <div className="agent-orbit">
+          <span className="agent-core">AI</span>
+          <span className="orbit-node n1">CRM</span>
+          <span className="orbit-node n2">DADOS</span>
+          <span className="orbit-node n3">API</span>
+          <span className="orbit-node n4">TIME</span>
+        </div>
+        <div className="agent-log"><span>03 tarefas concluídas</span><b>Próxima ação →</b></div>
+      </div>
+    );
+  }
+
+  if (type === "software") {
+    return (
+      <div className="product-visual software-visual" aria-hidden="true">
+        <div className="visual-top"><span>Release / produção</span><i>Estável</i></div>
+        <div className="code-window">
+          <p><small>01</small><span>const</span> problema = operação.real;</p>
+          <p><small>02</small><span>const</span> sistema = arquitetura(problema);</p>
+          <p><small>03</small><span>await</span> construir(sistema);</p>
+          <p><small>04</small><b>deploy</b>({`{ secure: true }`});</p>
+        </div>
+        <div className="deploy-line"><i /><span>Build</span><i /><span>Testes</span><i /><span>Produção</span></div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="product-visual security-visual" aria-hidden="true">
+      <div className="visual-top"><span>Security posture</span><i>Protegido</i></div>
+      <div className="security-score"><div><strong>94</strong><span>/100</span></div><p>Ambiente monitorado<br />e preparado para evoluir.</p></div>
+      <div className="security-list">
+        <span><i>✓</i> Identidade e acesso <b>OK</b></span>
+        <span><i>✓</i> Infraestrutura <b>OK</b></span>
+        <span><i>✓</i> Observabilidade <b>OK</b></span>
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
     <main>
       <header className="site-header">
-        <a className="wordmark" href="#inicio" aria-label="IungX — início">
-          IUNG<span>X</span><i>/</i>
-        </a>
+        <a className="wordmark" href="#inicio" aria-label="IungX — início">IungX</a>
         <nav aria-label="Navegação principal">
-          <a href="#sistema">Sistema</a>
-          <a href="#execucao">Execução</a>
-          <a href="#lideranca">Liderança</a>
+          <a href="#solucoes">Soluções</a>
+          <a href="#como-atuamos">Como atuamos</a>
+          <a href="#lideranca">Sobre</a>
         </nav>
         <a className="contact-link" href="tel:+554888222608">
-          <span>Iniciar conversa</span><b aria-hidden="true">↗</b>
+          <span>Fale com a IungX</span><b aria-hidden="true">↗</b>
         </a>
       </header>
 
       <section className="hero" id="inicio">
-        <div className="hero-coordinate" aria-hidden="true">IUNGX / SYS.001</div>
-        <div className="hero-watermark" aria-hidden="true">X</div>
-
-        <div className="hero-status">
-          <span><i /> SISTEMA ONLINE</span>
-          <span>BRASIL / GLOBAL DELIVERY</span>
-        </div>
-
-        <div className="hero-layout">
-          <div className="hero-message">
-            <p className="overline">DO TERMINAL À DECISÃO</p>
-            <h1>
-              Tecnologia para empresas que não podem operar no <em>improviso.</em>
-            </h1>
-            <p className="hero-lead">
-              Estratégia, software, automação e segurança funcionando como um só sistema —
-              construído para o problema real, não para a apresentação.
-            </p>
-            <div className="hero-actions">
-              <a className="primary-action" href="#sistema">
-                Ver o sistema <span aria-hidden="true">↓</span>
-              </a>
-              <a className="text-action" href="tel:+554888222608">
-                +55 48 8822-2608 <span aria-hidden="true">↗</span>
-              </a>
-            </div>
-          </div>
-
-          <div className="core-panel" aria-label="Mapa das competências IungX">
-            <div className="core-panel-head">
-              <span>IUNGX_CORE</span>
-              <span>LIVE / 04 NODES</span>
-            </div>
-            <div className="core-map">
-              <div className="core-lines" aria-hidden="true" />
-              <div className="core-node node-crm"><small>01</small><b>CRM</b></div>
-              <div className="core-node node-ai"><small>02</small><b>AI</b></div>
-              <div className="core-center"><span>IX</span><small>CORE</small></div>
-              <div className="core-node node-dev"><small>03</small><b>DEV</b></div>
-              <div className="core-node node-sec"><small>04</small><b>SEC</b></div>
-            </div>
-            <div className="core-command">
-              <span>root@iungx:~$</span> solve --business --secure<span className="blink">_</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="hero-rail">
-          <span>ESTRATÉGIA</span><i>01</i>
-          <span>ENGENHARIA</span><i>02</i>
-          <span>SEGURANÇA</span><i>03</i>
-          <span>EXECUÇÃO</span><i>04</i>
+        <div className="hero-mark" aria-hidden="true"><span>IX</span></div>
+        <h1>IungX</h1>
+        <p>Tecnologia aplicada ao negócio, do terminal à sala de decisão.</p>
+        <a className="hero-button" href="#solucoes">
+          Conheça nossas soluções <span aria-hidden="true">↓</span>
+        </a>
+        <div className="hero-rail" aria-label="Áreas de atuação">
+          <span>Bitrix24</span><span>Inteligência artificial</span><span>Software</span><span>Cybersecurity</span>
         </div>
       </section>
 
-      <section className="capabilities" id="sistema">
-        <div className="section-code">01 — O SISTEMA</div>
-        <div className="capabilities-intro">
-          <h2>Quatro camadas.<br />Uma única <span>responsabilidade.</span></h2>
-          <p>
-            Fazer a tecnologia sair do campo das promessas e entrar no fluxo real da empresa.
-          </p>
-        </div>
+      <section className="intro" id="solucoes">
+        <p className="section-label">IUNGX / TECNOLOGIA & NEGÓCIOS</p>
+        <h2>Tecnologia que sai do plano<br />e entra em produção.</h2>
+        <p className="intro-copy">
+          Conectamos estratégia, engenharia, automação e segurança para resolver problemas reais — de ponta a ponta.
+        </p>
+      </section>
 
-        <div className="capability-list">
-          {capabilities.map((item) => (
-            <article className="capability-row" key={item.id}>
-              <div className="capability-id">{item.id}</div>
-              <div className="capability-name">
-                <small>{item.label}</small>
-                <h3>{item.title}</h3>
-              </div>
-              <p>{item.description}</p>
-              <div className="capability-stack">{item.stack}</div>
-              <span className="row-arrow" aria-hidden="true">↗</span>
+      <section className="service-stories">
+        {services.map((service, index) => (
+          <article className={`service-story ${index % 2 ? "reverse" : ""}`} key={service.eyebrow}>
+            <div className="story-copy">
+              <span className="story-number">0{index + 1}</span>
+              <p className="story-eyebrow">{service.eyebrow}</p>
+              <h3>{service.title}</h3>
+              <p className="story-description">{service.description}</p>
+              <ul>{service.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>
+            </div>
+            <ProductVisual type={service.visual} />
+          </article>
+        ))}
+      </section>
+
+      <section className="method" id="como-atuamos">
+        <div className="method-heading">
+          <p className="section-label">UMA ENTREGA, DO INÍCIO AO FIM</p>
+          <h2>Estratégia suficiente para decidir.<br />Profundidade suficiente para executar.</h2>
+        </div>
+        <div className="method-steps">
+          {steps.map(([number, title, description]) => (
+            <article key={number}>
+              <span>{number}</span><h3>{title}</h3><p>{description}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="execution" id="execucao">
-        <div className="execution-statement">
-          <span className="section-code light">02 — EXECUTION LAYER</span>
-          <p>Menos</p>
-          <h2>DISCURSO.</h2>
-          <p>Mais</p>
-          <h2 className="solid">SISTEMA.</h2>
-        </div>
-        <div className="execution-detail">
-          <p className="execution-lead">
-            A IungX opera no espaço entre a decisão executiva e o que realmente acontece
-            quando alguém abre os logs.
-          </p>
-          <div className="process-list">
-            {process.map(([id, title, text]) => (
-              <div className="process-step" key={id}>
-                <span>{id}</span>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="leadership" id="lideranca">
-        <div className="section-code">03 — ROOT ACCESS</div>
-        <div className="leadership-grid">
-          <div className="leadership-quote">
-            <span className="quote-mark">“</span>
-            <p>
-              Estratégia suficiente para a sala de decisão. Profundidade suficiente para
-              <em> abrir o terminal.</em>
-            </p>
-          </div>
-
-          <div className="profile">
-            <div className="profile-head">
-              <div className="profile-monogram">LJ</div>
-              <div><h2>Leonardo Jung</h2><span>FOUNDER / TECHNOLOGY LEADER</span></div>
-            </div>
-            <p>
-              Trajetória construída entre infraestrutura, engenharia de sistemas,
-              cybersecurity, software, automação, inteligência artificial e liderança
-              executiva — da Marinha do Brasil a operações nacionais e internacionais.
-            </p>
-            <dl>
-              <div><dt>CAMADA</dt><dd>EXECUTIVA + TÉCNICA</dd></div>
-              <div><dt>ABORDAGEM</dt><dd>SECURITY-FIRST</dd></div>
-              <div><dt>MODO</dt><dd>HANDS-ON</dd></div>
-            </dl>
-            <a href="https://www.linkedin.com/in/leonardo-j-93b304286/" target="_blank" rel="noreferrer">
-              PERFIL COMPLETO <span aria-hidden="true">↗</span>
-            </a>
-          </div>
+        <div className="leadership-copy">
+          <p className="section-label">LIDERANÇA HANDS-ON</p>
+          <h2>Da infraestrutura à estratégia de tecnologia.</h2>
+          <p>
+            Leonardo Jung construiu sua trajetória entre infraestrutura, sistemas, desenvolvimento, cybersecurity, automação, inteligência artificial e liderança executiva — em ambientes brasileiros e internacionais.
+          </p>
+          <p>
+            A mesma pessoa que discute prioridade, orçamento e impacto de negócio também abre o terminal, lê logs, revisa arquitetura e entende o que está acontecendo por baixo do capô.
+          </p>
+          <a href="https://www.linkedin.com/in/leonardo-j-93b304286/" target="_blank" rel="noreferrer">Conheça a trajetória <span>↗</span></a>
         </div>
+        <blockquote>
+          <span>root@leojung:~# whoami</span>
+          <p>Technology leader.<br />Builder.<br />Problem solver.</p>
+          <footer>Leonardo Jung — Founder, IungX</footer>
+        </blockquote>
       </section>
 
       <section className="final-cta">
-        <div className="cta-index">04 / START</div>
-        <p>SE O PROBLEMA É REAL,</p>
-        <h2>VAMOS CONSTRUIR.</h2>
-        <div className="cta-bottom">
-          <span>Estratégia → Engenharia → Produção</span>
-          <a href="tel:+554888222608">INICIAR CONVERSA <b aria-hidden="true">↗</b></a>
-        </div>
+        <div className="hero-mark final-mark" aria-hidden="true"><span>IX</span></div>
+        <h2>Vamos construir o próximo sistema.</h2>
+        <p>Conte o problema. A tecnologia começa a partir dele.</p>
+        <a href="tel:+554888222608">Falar com Leonardo <span>↗</span></a>
       </section>
 
-      <footer>
-        <a className="wordmark footer-wordmark" href="#inicio">IUNG<span>X</span><i>/</i></a>
+      <footer className="site-footer">
+        <a className="wordmark" href="#inicio">IungX</a>
         <p>Leonardo Jung Desenvolvimento de Software Ltda.<br />CNPJ 68.006.339/0001-39</p>
-        <div className="footer-links">
-          <a href="tel:+554888222608">+55 48 8822-2608</a>
-          <a href="https://www.linkedin.com/in/leonardo-j-93b304286/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-        </div>
-        <small>© 2026 / IUNGX TECHNOLOGY PRACTICE</small>
+        <div><a href="tel:+554888222608">+55 48 8822-2608</a><a href="https://www.linkedin.com/in/leonardo-j-93b304286/" target="_blank" rel="noreferrer">LinkedIn ↗</a></div>
+        <small>© 2026 IungX. Tecnologia aplicada ao negócio.</small>
       </footer>
     </main>
   );
