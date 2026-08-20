@@ -46,7 +46,10 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${manrope.variable} ${plexMono.variable}`}>{children}</body>
+      <body className={`${manrope.variable} ${plexMono.variable}`}>
+        {children}
+        <script src="/interactions.js" defer />
+      </body>
     </html>
   );
 }

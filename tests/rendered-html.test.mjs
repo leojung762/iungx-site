@@ -38,6 +38,9 @@ test("server-renders the IungX website", async () => {
   assert.match(html, /service-ai\.webp/);
   assert.match(html, /service-software\.webp/);
   assert.match(html, /service-security\.webp/);
+  assert.match(html, /\/interactions\.js/);
+  assert.match(html, /screen-wipe/);
+  assert.match(html, /section-indicator/);
   assert.match(html, /\+55 48 8822-2608/);
   assert.match(html, /68\.006\.339\/0001-39/);
   assert.match(html, /https:\/\/iungx\.space\/og-minimal-v2\.png/);
@@ -46,15 +49,18 @@ test("server-renders the IungX website", async () => {
 
 test("keeps the social preview and production source in place", async () => {
   await access(new URL("../public/og-minimal-v2.png", import.meta.url));
-  const [page, layout, css] = await Promise.all([
+  const [page, layout, css, interactions] = await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
+    readFile(new URL("../public/interactions.js", import.meta.url), "utf8"),
   ]);
 
   assert.match(page, /Fale com a IungX/);
   assert.match(page, /Technology leader/);
   assert.match(layout, /og-minimal-v2\.png/);
   assert.match(css, /--white:\s*#f7f7f5/);
+  assert.match(interactions, /IntersectionObserver/);
+  assert.match(interactions, /data-tilt/);
   assert.doesNotMatch(page, /SkeletonPreview|codex-preview/);
 });

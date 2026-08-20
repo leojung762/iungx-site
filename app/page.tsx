@@ -52,6 +52,10 @@ export default function Home() {
   return (
     <main>
       <div className="scroll-progress" aria-hidden="true" />
+      <div className="screen-wipe" aria-hidden="true"><span>IUNGX</span></div>
+      <aside className="section-indicator" aria-hidden="true">
+        <span>01</span><i /><b>INÍCIO</b>
+      </aside>
       <header className="site-header">
         <a className="wordmark" href="#inicio" aria-label="IungX — início">IungX</a>
         <nav aria-label="Navegação principal">
@@ -62,7 +66,12 @@ export default function Home() {
         <a className="header-cta" href="tel:+554888222608">Fale com a IungX <span>↗</span></a>
       </header>
 
-      <section className="hero" id="inicio">
+      <section className="hero motion-stage" id="inicio" data-section="INÍCIO" data-index="01">
+        <div className="hero-motion" aria-hidden="true">
+          <span className="motion-ring ring-one" />
+          <span className="motion-ring ring-two" />
+          <span className="motion-core" />
+        </div>
         <h1 aria-label="IungX">
           {"IungX".split("").map((letter, index) => (
             <span aria-hidden="true" key={`${letter}-${index}`}>{letter}</span>
@@ -80,7 +89,7 @@ export default function Home() {
         </div>
       </div>
 
-      <section className="intro" id="solucoes">
+      <section className="intro motion-stage" id="solucoes" data-section="VISÃO" data-index="02">
         <p className="kicker">TECNOLOGIA & NEGÓCIOS</p>
         <h2>Do terminal à<br />sala de decisão.</h2>
         <p>
@@ -90,8 +99,8 @@ export default function Home() {
 
       <section className="services">
         {services.map((service, index) => (
-          <article className={`service ${index % 2 ? "service-reverse" : ""}`} key={service.number}>
-            <div className={`service-art art-${index + 1}`}>
+          <article className={`service motion-stage ${index % 2 ? "service-reverse" : ""}`} data-section={service.label} data-index={`0${index + 3}`} key={service.number}>
+            <div className={`service-art art-${index + 1}`} data-tilt>
               <img
                 src={service.image}
                 alt={service.alt}
@@ -116,7 +125,7 @@ export default function Home() {
         ))}
       </section>
 
-      <section className="method" id="metodo">
+      <section className="method motion-stage" id="metodo" data-section="MÉTODO" data-index="07">
         <div className="method-title">
           <p className="kicker dark">COMO ATUAMOS</p>
           <h2>Uma entrega.<br />Do início ao fim.</h2>
@@ -130,7 +139,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="about" id="sobre">
+      <section className="about motion-stage" id="sobre" data-section="SOBRE" data-index="08">
         <div className="about-heading">
           <p className="kicker">LIDERANÇA HANDS-ON</p>
           <h2>Estratégia suficiente para decidir. Profundidade suficiente para executar.</h2>
@@ -150,7 +159,7 @@ export default function Home() {
         </blockquote>
       </section>
 
-      <section className="contact">
+      <section className="contact motion-stage" data-section="CONTATO" data-index="09">
         <p className="kicker dark">COMECE PELO PROBLEMA</p>
         <h2>Vamos conversar.</h2>
         <p>Conte o que está travando a operação. A tecnologia começa a partir daí.</p>
