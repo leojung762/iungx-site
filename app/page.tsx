@@ -7,9 +7,9 @@ const services = [
   {
     number: "01",
     label: "SYSTEMS",
-    image: "/service-systems-v2.webp",
-    alt: "Business systems and CRM platforms connected to a central operation",
-    altPt: "Sistemas empresariais e plataformas de CRM conectados a uma operação central",
+    image: "/service-systems-v3.webp",
+    alt: "Consultant presenting a CRM sales pipeline and integrated business systems",
+    altPt: "Consultor apresentando um pipeline de CRM e sistemas empresariais integrados",
     title: "Systems implementation.",
     titlePt: "Implementação de sistemas.",
     description:
@@ -26,9 +26,9 @@ const services = [
   {
     number: "02",
     label: "AI",
-    image: "/service-ai-v2.webp",
-    alt: "Computational sculpture representing artificial intelligence and automation",
-    altPt: "Escultura computacional representando inteligência artificial e automação",
+    image: "/service-ai-v3.webp",
+    alt: "Operations professional using an AI assistant to review and automate workflows",
+    altPt: "Profissional de operações usando um assistente de IA para revisar e automatizar fluxos",
     title: "AI applied to real work.",
     titlePt: "IA aplicada ao trabalho real.",
     description:
@@ -45,9 +45,9 @@ const services = [
   {
     number: "03",
     label: "BUILD",
-    image: "/service-software-v2.webp",
-    alt: "Modular architecture representing custom software development",
-    altPt: "Arquitetura modular representando construção de software sob medida",
+    image: "/service-software-v3.webp",
+    alt: "Software engineers reviewing a custom application and its technical architecture",
+    altPt: "Engenheiros de software revisando uma aplicação sob medida e sua arquitetura técnica",
     title: "Software designed around the problem.",
     titlePt: "Software desenhado em torno do problema.",
     description:
@@ -64,9 +64,9 @@ const services = [
   {
     number: "04",
     label: "SECURE",
-    image: "/service-security-v2.webp",
-    alt: "Digital infrastructure protected by a security architecture",
-    altPt: "Infraestrutura digital protegida por uma arquitetura de segurança",
+    image: "/service-security-v3.webp",
+    alt: "Security analyst monitoring networks, incidents, and server infrastructure",
+    altPt: "Analista de segurança monitorando redes, incidentes e infraestrutura de servidores",
     title: "Security from the very first decision.",
     titlePt: "Segurança desde a primeira decisão.",
     description:

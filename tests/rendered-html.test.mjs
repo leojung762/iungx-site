@@ -35,10 +35,10 @@ test("server-renders the IungX website", async () => {
   assert.match(html, /Systems implementation\./);
   assert.match(html, /AI applied to real work/);
   assert.match(html, /Security from the very first decision/);
-  assert.match(html, /service-systems-v2\.webp/);
-  assert.match(html, /service-ai-v2\.webp/);
-  assert.match(html, /service-software-v2\.webp/);
-  assert.match(html, /service-security-v2\.webp/);
+  assert.match(html, /service-systems-v3\.webp/);
+  assert.match(html, /service-ai-v3\.webp/);
+  assert.match(html, /service-software-v3\.webp/);
+  assert.match(html, /service-security-v3\.webp/);
   assert.match(html, /HubSpot/);
   assert.match(html, /Pipedrive/);
   assert.match(html, /Salesforce/);
