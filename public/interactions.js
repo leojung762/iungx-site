@@ -39,7 +39,11 @@
     }
     if (indicatorLabel && currentStage) indicatorLabel.textContent = currentStage.dataset.section || "IUNGX";
     document.title = lang === "pt" ? "IungX — Tecnologia aplicada ao negócio" : "IungX — Technology built for business";
-    if (persist) window.localStorage.setItem("iungx-language", lang);
+    if (persist) {
+      try {
+        window.localStorage.setItem("iungx-language", lang);
+      } catch {}
+    }
   };
 
   let savedLanguage = "en";

@@ -42,7 +42,7 @@ test("server-renders the IungX website", async () => {
   assert.match(html, /HubSpot/);
   assert.match(html, /Pipedrive/);
   assert.match(html, /Salesforce/);
-  assert.match(html, /\/interactions\.js/);
+  assert.match(html, /\/interactions\.js\?v=2/);
   assert.match(html, /screen-wipe/);
   assert.match(html, /section-indicator/);
   assert.match(html, /wa\.me\/554888222608/);

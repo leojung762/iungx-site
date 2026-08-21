@@ -49,7 +49,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en">
       <body className={`${manrope.variable} ${plexMono.variable}`}>
         {children}
-        <script src="/interactions.js" defer />
+        <script src="/interactions.js?v=2" defer />
       </body>
     </html>
   );
