@@ -29,6 +29,7 @@ test("server-renders the IungX website", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
+  const head = html.slice(0, html.indexOf("</head>"));
   assert.match(html, /<title>IungX — Technology built for business<\/title>/i);
   assert.match(html, /From the terminal to the/);
   assert.match(html, /Systems implementation\./);
@@ -48,6 +49,9 @@ test("server-renders the IungX website", async () => {
   assert.doesNotMatch(html, /\+55 48 8822-2608/);
   assert.match(html, /68\.006\.339\/0001-39/);
   assert.match(html, /\/favicon\.png/);
+  assert.match(head, /rel="icon" href="\/favicon\.ico\?v=2"/);
+  assert.match(head, /rel="shortcut icon" href="\/favicon\.ico\?v=2"/);
+  assert.match(head, /rel="apple-touch-icon" href="\/favicon\.png\?v=2"/);
   assert.match(html, /language-switch/);
   assert.equal((html.match(/class="practice-group"/g) ?? []).length, 2);
   assert.match(html, /https:\/\/iungx\.space\/og-minimal-v2\.png/);
