@@ -21,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const image = new URL("/og-minimal-v2.png", `${protocol}://${host}`).toString();
   const title = "IungX — Technology built for business";
   const description =
-    "Bitrix24, artificial intelligence, automation, software, infrastructure, and cybersecurity solutions built around real business problems.";
+    "Systems implementation, artificial intelligence, automation, software, infrastructure, and cybersecurity built around real business problems.";
 
   return {
     title,

@@ -6,27 +6,27 @@ const whatsappUrlPt =
 const services = [
   {
     number: "01",
-    label: "CRM",
-    image: "/service-crm.webp",
-    alt: "Connected business flows in an integrated architecture",
-    altPt: "Fluxos empresariais conectados em uma arquitetura integrada",
-    title: "Bitrix24 that organizes your entire operation.",
-    titlePt: "Bitrix24 que organiza a operação inteira.",
+    label: "SYSTEMS",
+    image: "/service-systems-v2.webp",
+    alt: "Business systems and CRM platforms connected to a central operation",
+    altPt: "Sistemas empresariais e plataformas de CRM conectados a uma operação central",
+    title: "Systems implementation.",
+    titlePt: "Implementação de sistemas.",
     description:
-      "Implementation, evolution, and integration of Bitrix24 to connect sales, service, operations, and management in one clear flow.",
+      "Selection, implementation, migration, and integration of CRM and business platforms to connect sales, service, operations, and management.",
     descriptionPt:
-      "Implantação, evolução e integração do Bitrix24 para conectar comercial, atendimento, operação e gestão em um fluxo claro.",
+      "Seleção, implantação, migração e integração de CRMs e plataformas empresariais para conectar comercial, atendimento, operação e gestão.",
     items: [
-      ["CRM", "CRM"],
-      ["Automation", "Automações"],
-      ["Integrations", "Integrações"],
-      ["Governance", "Governança"],
+      ["Bitrix24", "Bitrix24"],
+      ["HubSpot", "HubSpot"],
+      ["Pipedrive", "Pipedrive"],
+      ["Salesforce", "Salesforce"],
     ],
   },
   {
     number: "02",
     label: "AI",
-    image: "/service-ai.webp",
+    image: "/service-ai-v2.webp",
     alt: "Computational sculpture representing artificial intelligence and automation",
     altPt: "Escultura computacional representando inteligência artificial e automação",
     title: "AI applied to real work.",
@@ -45,7 +45,7 @@ const services = [
   {
     number: "03",
     label: "BUILD",
-    image: "/service-software.webp",
+    image: "/service-software-v2.webp",
     alt: "Modular architecture representing custom software development",
     altPt: "Arquitetura modular representando construção de software sob medida",
     title: "Software designed around the problem.",
@@ -64,7 +64,7 @@ const services = [
   {
     number: "04",
     label: "SECURE",
-    image: "/service-security.webp",
+    image: "/service-security-v2.webp",
     alt: "Digital infrastructure protected by a security architecture",
     altPt: "Infraestrutura digital protegida por uma arquitetura de segurança",
     title: "Security from the very first decision.",
@@ -138,7 +138,7 @@ export default function Home() {
         <div className="practice-track">
           {[false, true].map((duplicate) => (
             <div className="practice-group" aria-hidden={duplicate || undefined} key={String(duplicate)}>
-              <span>Bitrix24</span><i>×</i><span data-en="Artificial intelligence" data-pt="Inteligência artificial">Artificial intelligence</span><i>×</i><span>Software</span><i>×</i><span>Cybersecurity</span><i>×</i>
+              <span data-en="Systems implementation" data-pt="Implementação de sistemas">Systems implementation</span><i>×</i><span data-en="Artificial intelligence" data-pt="Inteligência artificial">Artificial intelligence</span><i>×</i><span>Software</span><i>×</i><span>Cybersecurity</span><i>×</i>
             </div>
           ))}
         </div>
